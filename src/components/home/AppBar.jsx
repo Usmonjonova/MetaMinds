@@ -12,6 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Drawer from '@mui/material/Drawer';
 import MenuIcon from '@mui/icons-material/Menu';
 import ToggleColorMode from './ToggleColorMode';
+import { useNavigate } from 'react-router-dom';
 
 const logoStyle = {
     width: '140px',
@@ -21,6 +22,7 @@ const logoStyle = {
 
 function AppAppBar({ mode, toggleColorMode }) {
     const [open, setOpen] = React.useState(false);
+    const navigate = useNavigate()
 
     const toggleDrawer = (newOpen) => () => {
         setOpen(newOpen);
@@ -92,11 +94,11 @@ function AppAppBar({ mode, toggleColorMode }) {
                             />
                             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                                 <MenuItem
-                                    onClick={() => scrollToSection('features')}
+                                    onClick={() => scrollToSection('vacancies')}
                                     sx={{ py: '6px', px: '12px' }}
                                 >
                                     <Typography variant="body2" color="text.primary">
-                                        Features
+                                        Vacancies
                                     </Typography>
                                 </MenuItem>
                                 <MenuItem
@@ -113,14 +115,6 @@ function AppAppBar({ mode, toggleColorMode }) {
                                 >
                                     <Typography variant="body2" color="text.primary">
                                         Highlights
-                                    </Typography>
-                                </MenuItem>
-                                <MenuItem
-                                    onClick={() => scrollToSection('pricing')}
-                                    sx={{ py: '6px', px: '12px' }}
-                                >
-                                    <Typography variant="body2" color="text.primary">
-                                        Pricing
                                     </Typography>
                                 </MenuItem>
                                 <MenuItem
@@ -143,23 +137,13 @@ function AppAppBar({ mode, toggleColorMode }) {
                             <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode} />
                             <Button
                                 color="primary"
-                                variant="text"
-                                size="small"
-                                component="a"
-                                href="/material-ui/getting-started/templates/sign-in/"
-                                target="_blank"
-                            >
-                                Sign in
-                            </Button>
-                            <Button
-                                color="primary"
                                 variant="contained"
                                 size="small"
                                 component="a"
-                                href="/material-ui/getting-started/templates/sign-up/"
                                 target="_blank"
+                                onClick={() => navigate('/login')}
                             >
-                                Sign up
+                                Sign in
                             </Button>
                         </Box>
                         <Box sx={{ display: { sm: '', md: 'none' } }}>
@@ -191,8 +175,8 @@ function AppAppBar({ mode, toggleColorMode }) {
                                     >
                                         <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode} />
                                     </Box>
-                                    <MenuItem onClick={() => scrollToSection('features')}>
-                                        Features
+                                    <MenuItem onClick={() => scrollToSection('vacancies')}>
+                                        Vacancies
                                     </MenuItem>
                                     <MenuItem onClick={() => scrollToSection('testimonials')}>
                                         Testimonials
@@ -200,23 +184,8 @@ function AppAppBar({ mode, toggleColorMode }) {
                                     <MenuItem onClick={() => scrollToSection('highlights')}>
                                         Highlights
                                     </MenuItem>
-                                    <MenuItem onClick={() => scrollToSection('pricing')}>
-                                        Pricing
-                                    </MenuItem>
                                     <MenuItem onClick={() => scrollToSection('faq')}>FAQ</MenuItem>
                                     <Divider />
-                                    <MenuItem>
-                                        <Button
-                                            color="primary"
-                                            variant="contained"
-                                            component="a"
-                                            href="/material-ui/getting-started/templates/sign-up/"
-                                            target="_blank"
-                                            sx={{ width: '100%' }}
-                                        >
-                                            Sign up
-                                        </Button>
-                                    </MenuItem>
                                     <MenuItem>
                                         <Button
                                             color="primary"
