@@ -15,39 +15,39 @@ import ThumbUpAltRoundedIcon from '@mui/icons-material/ThumbUpAltRounded';
 const items = [
     {
         icon: <SettingsSuggestRoundedIcon />,
-        title: 'Adaptable performance',
+        title: 'Versatile Skills',
         description:
-            'Our product effortlessly adjusts to your needs, boosting efficiency and simplifying your tasks.',
+            'Our ideal candidate demonstrates a wide range of skills and can seamlessly adjust to various roles and responsibilities, enhancing overall team efficiency.',
     },
     {
         icon: <ConstructionRoundedIcon />,
-        title: 'Built to last',
+        title: 'Proactive Problem-Solving',
         description:
-            'Experience unmatched durability that goes above and beyond with lasting investment.',
+            'We seek individuals who actively identify and address challenges, driving innovation and improvement within their projects.',
     },
     {
         icon: <ThumbUpAltRoundedIcon />,
-        title: 'Great user experience',
+        title: 'Strong Communication',
         description:
-            'Integrate our product into your routine with an intuitive and easy-to-use interface.',
+            'Effective communication is key. Our candidates should be able to articulate ideas clearly and collaborate successfully with diverse teams.',
     },
     {
         icon: <AutoFixHighRoundedIcon />,
-        title: 'Innovative functionality',
+        title: 'Commitment to Excellence',
         description:
-            'Stay ahead with features that set new standards, addressing your evolving needs better than the rest.',
+            'We value candidates who consistently strive for high standards in their work, ensuring top-quality outcomes in every task.',
     },
     {
         icon: <SupportAgentRoundedIcon />,
-        title: 'Reliable support',
+        title: 'Adaptability to Change',
         description:
-            'Count on our responsive customer support, offering assistance that goes beyond the purchase.',
+            'The ability to quickly adapt to new processes, technologies, and environments is crucial for our dynamic work setting.',
     },
     {
         icon: <QueryStatsRoundedIcon />,
-        title: 'Precision in every detail',
+        title: 'Team-Oriented Approach',
         description:
-            'Enjoy a meticulously crafted product where small touches make a significant impact on your overall experience.',
+            'We are looking for team players who contribute positively to the team environment and support collective goals with enthusiasm.',
     },
 ];
 
@@ -81,9 +81,7 @@ export default function Highlights() {
                         Highlights
                     </Typography>
                     <Typography variant="body1" sx={{ color: 'grey.400' }}>
-                        Explore why our product stands out: adaptability, durability,
-                        user-friendly design, and innovation. Enjoy reliable customer support and
-                        precision in every detail.
+                        Our ideal candidates are versatile, proactive problem-solvers with strong communication skills. They are committed to excellence, adaptable to change, and thrive in team-oriented environments. If you excel in these areas, we’d love to hear from you!
                     </Typography>
                 </Box>
                 <Grid container spacing={2.5}>

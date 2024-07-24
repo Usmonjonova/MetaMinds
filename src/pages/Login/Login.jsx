@@ -1,50 +1,47 @@
+// Login component
+
 import * as React from 'react';
+import { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-
-function Copyright(props) {
-    return (
-        <Typography variant="body2" color="text.secondary" align="center" {...props}>
-            {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
-                Your Website
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
-
-// TODO remove, this demo shouldn't need to reset the theme.
+import { Link, useNavigate } from 'react-router-dom';
+import { validateLogin } from '../../utils/validation/loginValidation'
+const apiURL = import.meta.env.VITE_API_URL
 
 const defaultTheme = createTheme();
 
 export default function Login() {
-    const navigate = useNavigate()
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
+    const [formData, setFormData] = useState({ email: '', password: '' });
+    const [errors, setErrors] = useState({});
+    const [apiError, setApiError] = useState('');
+    const navigate = useNavigate();
+
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTYyMzkwMjIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormData({ ...formData, [name]: value });
     };
 
-    const handleDashboard = () => {
-        navigate('/dashboard')
-    }
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const validationErrors = validateLogin(formData);
+        setErrors(validationErrors);
+
+        if (Object.keys(validationErrors).length === 0) {
+            localStorage.setItem('token', token);
+            navigate('/dashboard', { state: { key: formData.email } });
+        }
+    };
 
     return (
         <ThemeProvider theme={defaultTheme}>
@@ -74,6 +71,10 @@ export default function Login() {
                             name="email"
                             autoComplete="email"
                             autoFocus
+                            onChange={handleChange}
+                            value={formData.email}
+                            error={!!errors.email}
+                            helperText={errors.email}
                         />
                         <TextField
                             margin="normal"
@@ -84,7 +85,16 @@ export default function Login() {
                             type="password"
                             id="password"
                             autoComplete="current-password"
+                            onChange={handleChange}
+                            value={formData.password}
+                            error={!!errors.password}
+                            helperText={errors.password}
                         />
+                        {apiError && (
+                            <Typography color="error" variant="body2">
+                                {apiError}
+                            </Typography>
+                        )}
                         <FormControlLabel
                             control={<Checkbox value="remember" color="primary" />}
                             label="Remember me"
@@ -94,7 +104,6 @@ export default function Login() {
                             fullWidth
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
-                            onClick={handleDashboard}
                         >
                             Login
                         </Button>

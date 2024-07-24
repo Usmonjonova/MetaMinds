@@ -39,6 +39,30 @@ const items = [
         imageLight: 'url("/static/images/templates/templates-images/devices-light.png")',
         imageDark: 'url("/static/images/templates/templates-images/devices-dark.png")',
     },
+    {
+        icon: <ViewQuiltRoundedIcon />,
+        title: 'Dashboard',
+        description:
+            'This item could provide a snapshot of the most important metrics or data points related to the product.',
+        imageLight: 'url("/static/images/templates/templates-images/dash-light.png")',
+        imageDark: 'url("/static/images/templates/templates-images/dash-dark.png")',
+    },
+    {
+        icon: <EdgesensorHighRoundedIcon />,
+        title: 'Mobile integration',
+        description:
+            'This item could provide information about the mobile app version of the product.',
+        imageLight: 'url("/static/images/templates/templates-images/mobile-light.png")',
+        imageDark: 'url("/static/images/templates/templates-images/mobile-dark.png")',
+    },
+    {
+        icon: <DevicesRoundedIcon />,
+        title: 'Available on all platforms',
+        description:
+            'This item could let users know the product is available on all platforms, such as web, mobile, and desktop.',
+        imageLight: 'url("/static/images/templates/templates-images/devices-light.png")',
+        imageDark: 'url("/static/images/templates/templates-images/devices-dark.png")',
+    }
 ];
 
 export default function Features() {
@@ -65,117 +89,11 @@ export default function Features() {
                             color="text.secondary"
                             sx={{ mb: { xs: 2, sm: 4 } }}
                         >
-                            Here you can provide a brief overview of the key features of the
-                            product. For example, you could list the number of features, the types
-                            of features, add-ons, or the benefits of the features.
+                            Here you can get a brief overview of the key features of the
+                            vacancies.
                         </Typography>
                     </div>
                     <Stack
-                        direction="column"
-                        justifyContent="center"
-                        alignItems="flex-start"
-                        spacing={2}
-                        useFlexGap
-                        sx={{ width: '100%', display: { xs: 'none', sm: 'flex' } }}
-                    >
-                        {items.map(({ icon, title, description }, index) => (
-                            <Card
-                                key={index}
-                                variant="outlined"
-                                component={Button}
-                                onClick={() => handleItemClick(index)}
-                                sx={{
-                                    p: 3,
-                                    height: 'fit-content',
-                                    width: '100%',
-                                    background: 'none',
-                                    backgroundColor:
-                                        selectedItemIndex === index ? 'action.selected' : undefined,
-                                    borderColor: (theme) => {
-                                        if (theme.palette.mode === 'light') {
-                                            return selectedItemIndex === index
-                                                ? 'primary.light'
-                                                : 'grey.200';
-                                        }
-                                        return selectedItemIndex === index ? 'primary.dark' : 'grey.800';
-                                    },
-                                }}
-                            >
-                                <Box
-                                    sx={{
-                                        width: '100%',
-                                        display: 'flex',
-                                        textAlign: 'left',
-                                        flexDirection: { xs: 'column', md: 'row' },
-                                        alignItems: { md: 'center' },
-                                        gap: 2.5,
-                                    }}
-                                >
-                                    <Box
-                                        sx={{
-                                            color: (theme) => {
-                                                if (theme.palette.mode === 'light') {
-                                                    return selectedItemIndex === index
-                                                        ? 'primary.main'
-                                                        : 'grey.300';
-                                                }
-                                                return selectedItemIndex === index
-                                                    ? 'primary.main'
-                                                    : 'grey.700';
-                                            },
-                                        }}
-                                    >
-                                        {icon}
-                                    </Box>
-                                    <Box sx={{ textTransform: 'none' }}>
-                                        <Typography
-                                            color="text.primary"
-                                            variant="body2"
-                                            fontWeight="bold"
-                                        >
-                                            {title}
-                                        </Typography>
-                                        <Typography
-                                            color="text.secondary"
-                                            variant="body2"
-                                            sx={{ my: 0.5 }}
-                                        >
-                                            {description}
-                                        </Typography>
-                                        <Link
-                                            color="primary"
-                                            variant="body2"
-                                            fontWeight="bold"
-                                            sx={{
-                                                display: 'inline-flex',
-                                                alignItems: 'center',
-                                                '& > svg': { transition: '0.2s' },
-                                                '&:hover > svg': { transform: 'translateX(2px)' },
-                                            }}
-                                            onClick={(event) => {
-                                                event.stopPropagation();
-                                            }}
-                                        >
-                                            <span>Learn more</span>
-                                            <ChevronRightRoundedIcon
-                                                fontSize="small"
-                                                sx={{ mt: '1px', ml: '2px' }}
-                                            />
-                                        </Link>
-                                    </Box>
-                                </Box>
-                            </Card>
-                        ))}
-                    </Stack>
-                </Grid>
-                <Grid
-                    item
-                    xs={12}
-                    md={6}
-                    sx={{ display: { xs: 'none', sm: 'flex' }, width: '100%' }}
-                >
-                    <Stack
-                        direction="column"
                         justifyContent="center"
                         alignItems="flex-start"
                         spacing={2}

@@ -137,13 +137,23 @@ function AppAppBar({ mode, toggleColorMode }) {
                             <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode} />
                             <Button
                                 color="primary"
+                                variant="text"
+                                size="small"
+                                component="a"
+                                onClick={() => navigate('/login')}
+                                target="_blank"
+                            >
+                                Sign in
+                            </Button>
+                            <Button
+                                color="primary"
                                 variant="contained"
                                 size="small"
                                 component="a"
                                 target="_blank"
-                                onClick={() => navigate('/login')}
+                                onClick={() => navigate('/register')}
                             >
-                                Sign in
+                                Sign up
                             </Button>
                         </Box>
                         <Box sx={{ display: { sm: '', md: 'none' } }}>

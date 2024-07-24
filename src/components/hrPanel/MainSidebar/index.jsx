@@ -19,7 +19,7 @@ const MainSidebar = () => {
                                 <Link to='/vacancies'><Mail /><span>Vacancies</span></Link>
                             </li>
                             <li>
-                                <Link to='/employees'><Command /><span>Employees</span></Link>
+                                <Link to='/candidates'><Command /><span>Candidates</span></Link>
                             </li>
                         </ul>
 

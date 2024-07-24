@@ -12,32 +12,34 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
-
-function Copyright(props) {
-    return (
-        <Typography variant="body2" color="text.secondary" align="center" {...props}>
-            {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
-                Your Website
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
-
-// TODO remove, this demo shouldn't need to reset the theme.
+import { validateRegistration } from '../../utils/validation/registrationValidation';
+import { useNavigate } from 'react-router-dom';
 
 const defaultTheme = createTheme();
 
 export default function Register() {
+    const navigate = useNavigate()
+    const [formData, setFormData] = React.useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+    });
+    const [errors, setErrors] = React.useState({});
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({ ...prevData, [name]: value }));
+    };
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
+        const validationErrors = validateRegistration(formData);
+        setErrors(validationErrors);
+
+        if (Object.keys(validationErrors).length === 0) {
+            navigate('/login')
+        }
     };
 
     return (
@@ -69,6 +71,10 @@ export default function Register() {
                                     id="firstName"
                                     label="First Name"
                                     autoFocus
+                                    value={formData.firstName}
+                                    onChange={handleInputChange}
+                                    error={!!errors.firstName}
+                                    helperText={errors.firstName}
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6}>
@@ -79,6 +85,10 @@ export default function Register() {
                                     label="Last Name"
                                     name="lastName"
                                     autoComplete="family-name"
+                                    value={formData.lastName}
+                                    onChange={handleInputChange}
+                                    error={!!errors.secondName}
+                                    helperText={errors.secondName}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -89,6 +99,10 @@ export default function Register() {
                                     label="Email Address"
                                     name="email"
                                     autoComplete="email"
+                                    value={formData.email}
+                                    onChange={handleInputChange}
+                                    error={!!errors.email}
+                                    helperText={errors.email}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -100,6 +114,10 @@ export default function Register() {
                                     type="password"
                                     id="password"
                                     autoComplete="new-password"
+                                    value={formData.password}
+                                    onChange={handleInputChange}
+                                    error={!!errors.password}
+                                    helperText={errors.password}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -114,6 +132,7 @@ export default function Register() {
                             fullWidth
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
+                            onClick={handleSubmit}
                         >
                             Sign Up
                         </Button>
