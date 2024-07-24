@@ -27157,6 +27157,7 @@ Height property
 
 .content-wrapper {
   min-height: 100%;
+  height: 100vh;
   background-color: #f6f9fb;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
