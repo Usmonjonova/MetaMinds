@@ -77,14 +77,14 @@ export default function Hero() {
                             size="small"
                             variant="outlined"
                             aria-label="Enter your email address"
-                            placeholder="Your email address"
+                            placeholder="e.x: Frontend"
                             inputProps={{
                                 autoComplete: "off",
                                 "aria-label": "Enter your email address",
                             }}
                         />
                         <Button variant="contained" color="primary">
-                            Start now
+                            Search now
                         </Button>
                     </Stack>
                 </Stack>

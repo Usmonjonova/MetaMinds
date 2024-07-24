@@ -17,7 +17,7 @@ import { useNavigate } from 'react-router-dom';
 const items = [
     {
         icon: <ViewQuiltRoundedIcon />,
-        title: 'Dashboard',
+        title: 'Front-end developer',
         description:
             'This item could provide a snapshot of the most important metrics or data points related to the product.',
         imageLight: 'url("/static/images/templates/templates-images/dash-light.png")',
@@ -25,7 +25,7 @@ const items = [
     },
     {
         icon: <EdgesensorHighRoundedIcon />,
-        title: 'Mobile integration',
+        title: 'React JS developer',
         description:
             'This item could provide information about the mobile app version of the product.',
         imageLight: 'url("/static/images/templates/templates-images/mobile-light.png")',
@@ -33,7 +33,7 @@ const items = [
     },
     {
         icon: <DevicesRoundedIcon />,
-        title: 'Available on all platforms',
+        title: 'Software engineer',
         description:
             'This item could let users know the product is available on all platforms, such as web, mobile, and desktop.',
         imageLight: 'url("/static/images/templates/templates-images/devices-light.png")',
@@ -41,7 +41,7 @@ const items = [
     },
     {
         icon: <ViewQuiltRoundedIcon />,
-        title: 'Dashboard',
+        title: 'Front-end developer',
         description:
             'This item could provide a snapshot of the most important metrics or data points related to the product.',
         imageLight: 'url("/static/images/templates/templates-images/dash-light.png")',
@@ -49,7 +49,7 @@ const items = [
     },
     {
         icon: <EdgesensorHighRoundedIcon />,
-        title: 'Mobile integration',
+        title: 'Front-end developer',
         description:
             'This item could provide information about the mobile app version of the product.',
         imageLight: 'url("/static/images/templates/templates-images/mobile-light.png")',
@@ -57,7 +57,7 @@ const items = [
     },
     {
         icon: <DevicesRoundedIcon />,
-        title: 'Available on all platforms',
+        title: 'Front-end developer',
         description:
             'This item could let users know the product is available on all platforms, such as web, mobile, and desktop.',
         imageLight: 'url("/static/images/templates/templates-images/devices-light.png")',
