@@ -9,7 +9,8 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
 export default function MultiActionAreaCard() {
-    const url = 'https://metamindsgroup.pythonanywhere.com/tests/subjects/';
+    const url = 'https://metamindsgroup.pythonanywhere.com/tests/subjects';
+    const [subjects, setSubjects] = React.useState()
 
     const fetchData = async () => {
         try {
@@ -17,7 +18,7 @@ export default function MultiActionAreaCard() {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcyMjMwODE2MSwiaWF0IjoxNzIyMjIxNzYxLCJqdGkiOiJhODcyMzNkMTg4MjA0YTIzYjkwMmRkMjBlZjA1MzJjNiIsInVzZXJfaWQiOjR9.5KDzs0_738yF_EfX6fnMPsydkg52OzN1LW6WA3_La58',
+                    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI0ODE2MjQzLCJpYXQiOjE3MjIyMjQyNDMsImp0aSI6ImM2MTJjZTZkYmUxZTRlYzJhMDYzNjU1MTFhNmIwYzQ3IiwidXNlcl9pZCI6NH0._vJgFPi0uUk0LKsEXgtiHubPDbD67-yEyg79hRMmVFk',
                 },
             });
 
@@ -26,7 +27,7 @@ export default function MultiActionAreaCard() {
             }
 
             const data = await response.json();
-            console.log(data);
+            setSubjects(data)
         } catch (error) {
             console.error('There was a problem with the fetch operation:', error);
             console.log(`Error: ${error.message}`);
@@ -34,29 +35,35 @@ export default function MultiActionAreaCard() {
     };
 
     useEffect(() => {
-        fetchData();
-    }, []);
+        fetchData()
+    }, [])
 
     return (
-        <Card sx={{ maxWidth: 345 }}>
-            <CardActionArea>
-                <CardMedia
-                    component="img"
-                    height="140"
-                    image={cardImg}
-                    alt="green iguana"
-                />
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        Matematika
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-            <CardActions>
-                <Button size="small" color="primary">
-                    <Link to={`/classroom/${'matematika'}`}>More</Link>
-                </Button>
-            </CardActions>
-        </Card>
+        <>
+            {
+                subjects && subjects.map((subject) => (
+                    <Card key={subject.id} sx={{ maxWidth: 345 }}>
+                        <CardActionArea>
+                            <CardMedia
+                                component="img"
+                                height="140"
+                                image={cardImg}
+                                alt="green iguana"
+                            />
+                            <CardContent>
+                                <Typography gutterBottom variant="h5" component="div">
+                                    {subject.name}
+                                </Typography>
+                            </CardContent>
+                        </CardActionArea>
+                        <CardActions>
+                            <Button size="small" color="primary">
+                                <Link to={`/classroom/${subject.id}`}>More</Link>
+                            </Button>
+                        </CardActions>
+                    </Card>
+                ))
+            }
+        </>
     );
 }

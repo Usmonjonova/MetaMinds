@@ -94,6 +94,7 @@ const ThemeQuizCard = () => {
         const grey = palette.grey || {};
         const mode = palette.mode || 'light';
 
+
         return {
             height: 10,
             borderRadius: 5,
@@ -496,11 +497,7 @@ const ThemeQuizCard = () => {
 
     return (
         <>
-            {questionType === "Multiple Choice"
-                ? renderMCQ()
-                : questionType === "True/False"
-                    ? renderTrueFalse()
-                    : renderShortAnswer()}
+            {renderMCQ()}
         </>
     );
 };

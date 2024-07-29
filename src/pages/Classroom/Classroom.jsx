@@ -8,9 +8,6 @@ const Classroom = () => {
                 <h2 className='classroom-title'>7-sinf</h2>
                 <div className="carouselContent cdwgc8k">
                     <CourseCard></CourseCard>
-                    <CourseCard></CourseCard>
-                    <CourseCard></CourseCard>
-                    <CourseCard></CourseCard>
                 </div>
             </div>
 

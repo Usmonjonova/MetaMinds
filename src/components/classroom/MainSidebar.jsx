@@ -20,13 +20,7 @@ const MainSidebar = () => {
                                 <Link to='/classroom'><Home /><span>Classroom</span></Link>
                             </li>
                             <li>
-                                <Link to='/courses'><Mail /><span>All Courses</span></Link>
-                            </li>
-                            <li>
-                                <Link to='/calendar'><Command /><span>Calendar</span></Link>
-                            </li>
-                            <li>
-                                <Link to='/groupchats'><MessageCircle /><span>Group chats</span></Link>
+                                <Link to='/library'><Mail /><span>VR Library</span></Link>
                             </li>
                         </ul>
 
