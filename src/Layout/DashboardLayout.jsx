@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Navbar from '../components/hrPanel/Navbar';
-import MainSidebar from '../components/hrPanel/MainSidebar';
+import Navbar from '../components/classroom/Navbar';
+import MainSidebar from '../components/classroom/MainSidebar'
 import '../assets/styles/skin_color.css';
 import '../assets/styles/style_rtl.css';
 import '../assets/styles/style.css';

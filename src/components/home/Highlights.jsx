@@ -6,48 +6,27 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import AutoFixHighRoundedIcon from '@mui/icons-material/AutoFixHighRounded';
-import ConstructionRoundedIcon from '@mui/icons-material/ConstructionRounded';
 import QueryStatsRoundedIcon from '@mui/icons-material/QueryStatsRounded';
-import SettingsSuggestRoundedIcon from '@mui/icons-material/SettingsSuggestRounded';
 import SupportAgentRoundedIcon from '@mui/icons-material/SupportAgentRounded';
-import ThumbUpAltRoundedIcon from '@mui/icons-material/ThumbUpAltRounded';
 
 const items = [
     {
-        icon: <SettingsSuggestRoundedIcon />,
-        title: 'Versatile Skills',
-        description:
-            'Our ideal candidate demonstrates a wide range of skills and can seamlessly adjust to various roles and responsibilities, enhancing overall team efficiency.',
-    },
-    {
-        icon: <ConstructionRoundedIcon />,
-        title: 'Proactive Problem-Solving',
-        description:
-            'We seek individuals who actively identify and address challenges, driving innovation and improvement within their projects.',
-    },
-    {
-        icon: <ThumbUpAltRoundedIcon />,
-        title: 'Strong Communication',
-        description:
-            'Effective communication is key. Our candidates should be able to articulate ideas clearly and collaborate successfully with diverse teams.',
-    },
-    {
         icon: <AutoFixHighRoundedIcon />,
-        title: 'Commitment to Excellence',
+        title: 'Personalized learning',
         description:
-            'We value candidates who consistently strive for high standards in their work, ensuring top-quality outcomes in every task.',
+            'Students practice at their own pace, first filling in gaps in their understanding and then accelerating their learning.',
     },
     {
         icon: <SupportAgentRoundedIcon />,
-        title: 'Adaptability to Change',
+        title: 'Personalized learning',
         description:
-            'The ability to quickly adapt to new processes, technologies, and environments is crucial for our dynamic work setting.',
+            'Created by experts, Muallim AI’s library of trusted practice and lessons covers math, science, and more. Always free for learners and teachers.',
     },
     {
         icon: <QueryStatsRoundedIcon />,
-        title: 'Team-Oriented Approach',
+        title: 'Tools to empower teachers',
         description:
-            'We are looking for team players who contribute positively to the team environment and support collective goals with enthusiasm.',
+            'With Muallim AI, teachers can identify gaps in their students’ understanding, tailor instruction, and meet the needs of every student.',
     },
 ];
 

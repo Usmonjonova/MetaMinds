@@ -6,10 +6,10 @@ import DashboardLayout from '../Layout/DashboardLayout.jsx';
 const Home = lazy(() => import('../pages/Home/Home.jsx'));
 const Login = lazy(() => import('../pages/Login/Login.jsx'));
 const Register = lazy(() => import('../pages/Register/Register.jsx'));
-const Dashboard = lazy(() => import('../pages/HrDashboard/HrDashboard.jsx'));
-const Vacancies = lazy(() => import('../components/hrPanel/Vacancies/Vacancies.jsx'));
-const Candidates = lazy(() => import('../components/hrPanel/EmployeeList/Employee.jsx'));
-const Vacancy = lazy(() => import('../pages/Home/Vacancy.jsx'));
+const Classroom = lazy(() => import('../pages/Classroom/Classroom.jsx'));
+const SubjectTitle = lazy(() => import('../pages/Classroom/SubjectContent.jsx'));
+const ThemeQuiz = lazy(() => import('../pages/ThemeQuiz/ThemeQuiz.jsx'));
+const ThemeQuizCard = lazy(() => import('../components/classroom/ThemeQuizCard.jsx'));
 
 const AppRoutes = () => (
     <Suspense fallback={<div>Loading...</div>}>
@@ -18,12 +18,14 @@ const AppRoutes = () => (
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/" element={<Home />} />
-            <Route path="/vacancy/:id" element={<Vacancy />} />
 
-            <Route element={<DashboardLayout />}>
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/vacancies" element={<Vacancies />} />
-                <Route path="/candidates" element={<Candidates />} />
+            {/* Protected routes with layout */}
+            <Route path="/" element={<DashboardLayout />}>
+                <Route path="/classroom" element={<Classroom />} />
+                <Route path="/classroom/:id" element={< SubjectTitle />} />
+                <Route path="/matematika/:id" element={< ThemeQuiz />} />
+                <Route path="/quizType" element={< ThemeQuizCard />} />
+                <Route path="/results" element={< ThemeQuizCard />} />
             </Route>
 
             {/* Catch-all route for 404 */}

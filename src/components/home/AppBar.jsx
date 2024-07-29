@@ -88,11 +88,11 @@ function AppAppBar({ mode, toggleColorMode }) {
 
                             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                                 <MenuItem
-                                    onClick={() => scrollToSection('vacancies')}
+                                    onClick={() => scrollToSection('home')}
                                     sx={{ py: '6px', px: '12px' }}
                                 >
                                     <Typography variant="body2" color="text.primary">
-                                        Vacancies
+                                        Home
                                     </Typography>
                                 </MenuItem>
                                 <MenuItem
@@ -179,8 +179,8 @@ function AppAppBar({ mode, toggleColorMode }) {
                                     >
                                         <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode} />
                                     </Box>
-                                    <MenuItem onClick={() => scrollToSection('vacancies')}>
-                                        Vacancies
+                                    <MenuItem onClick={() => scrollToSection('home')}>
+                                        Home
                                     </MenuItem>
                                     <MenuItem onClick={() => scrollToSection('testimonials')}>
                                         Testimonials

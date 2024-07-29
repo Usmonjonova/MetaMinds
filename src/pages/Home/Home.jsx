@@ -10,10 +10,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
 import AppAppBar from '../../components/home/AppBar.jsx';
 import Hero from '../../components/home/Hero.jsx';
-import LogoCollection from '../../components/home/LogoCollection.jsx';
 import Highlights from '../../components/home/Highlights.jsx';
-import Pricing from '../../components/home/Pricing.jsx';
-import Features from '../../components/home/Features.jsx';
 import Testimonials from '../../components/home/Testimonials.jsx';
 import FAQ from '../../components/home/Faq.jsx';
 import Footer from '../../components/home/Footer.jsx';
@@ -77,8 +74,6 @@ export default function LandingPage() {
             <AppAppBar mode={mode} toggleColorMode={toggleColorMode} />
             <Hero />
             <Box sx={{ bgcolor: 'background.default' }}>
-                <LogoCollection />
-                <Features />
                 <Divider />
                 <Testimonials />
                 <Divider />

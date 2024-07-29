@@ -54,7 +54,7 @@ export default function Hero() {
                                         : "primary.light",
                             }}
                         >
-                            vacancies
+                            Features
                         </Typography>
                     </Typography>
                     <Typography
@@ -62,7 +62,7 @@ export default function Hero() {
                         color="text.secondary"
                         sx={{ alignSelf: "center", width: { sm: "100%", md: "80%" } }}
                     >
-                        Explore career opportunities at Najot Talim! Check out our latest job openings in teaching and administration and join our team dedicated to educational excellence. Apply now to make an impact!
+                        For every student, every classroom. Real results. We’re a nonprofit with the mission to provide a free, world-class education for anyone, anywhere.
                     </Typography>
                     <Stack
                         direction={{ xs: "column", sm: "row" }}
@@ -77,7 +77,6 @@ export default function Hero() {
                             size="small"
                             variant="outlined"
                             aria-label="Enter your email address"
-                            placeholder="e.x: Frontend"
                             inputProps={{
                                 autoComplete: "off",
                                 "aria-label": "Enter your email address",

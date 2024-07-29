@@ -1,115 +1,78 @@
-// Login component
+import React from 'react'
+import backgroundImg from '../../assets/images/bg-16.jpg'
+import { Link } from 'react-router-dom'
 
-import * as React from 'react';
-import { useState } from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Link, useNavigate } from 'react-router-dom';
-import { validateLogin } from '../../utils/validation/loginValidation'
-const apiURL = import.meta.env.VITE_API_URL
-
-const defaultTheme = createTheme();
-
-export default function Login() {
-    const [formData, setFormData] = useState({ email: '', password: '' });
-    const [errors, setErrors] = useState({});
-    const [apiError, setApiError] = useState('');
-    const navigate = useNavigate();
-
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTYyMzkwMjIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        setFormData({ ...formData, [name]: value });
-    };
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        const validationErrors = validateLogin(formData);
-        setErrors(validationErrors);
-
-        if (Object.keys(validationErrors).length === 0) {
-            localStorage.setItem('token', token);
-            navigate('/dashboard', { state: { key: formData.email } });
-        }
-    };
-
+const Login = () => {
     return (
-        <ThemeProvider theme={defaultTheme}>
-            <Container component="main" maxWidth="xs">
-                <CssBaseline />
-                <Box
-                    sx={{
-                        marginTop: 8,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                    }}
-                >
-                    <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                        <LockOutlinedIcon />
-                    </Avatar>
-                    <Typography component="h1" variant="h5">
-                        Login
-                    </Typography>
-                    <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-                        <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            id="email"
-                            label="Email Address"
-                            name="email"
-                            autoComplete="email"
-                            autoFocus
-                            onChange={handleChange}
-                            value={formData.email}
-                            error={!!errors.email}
-                            helperText={errors.email}
-                        />
-                        <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            name="password"
-                            label="Password"
-                            type="password"
-                            id="password"
-                            autoComplete="current-password"
-                            onChange={handleChange}
-                            value={formData.password}
-                            error={!!errors.password}
-                            helperText={errors.password}
-                        />
-                        {apiError && (
-                            <Typography color="error" variant="body2">
-                                {apiError}
-                            </Typography>
-                        )}
-                        <FormControlLabel
-                            control={<Checkbox value="remember" color="primary" />}
-                            label="Remember me"
-                        />
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            sx={{ mt: 3, mb: 2 }}
-                        >
-                            Login
-                        </Button>
-                    </Box>
-                </Box>
-            </Container>
-        </ThemeProvider>
-    );
+        <div
+            className="hold-transition dark-skin theme-primary bg-img"
+            style={{ backgroundImage: `url(${backgroundImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+            data-overlay="5"
+        >
+            <div className="container h-p100">
+                <div className="row align-items-center justify-content-md-center h-p100">
+                    <div className="col-12">
+                        <div className="row justify-content-center g-0">
+                            <div className="col-lg-5 col-md-5 col-12">
+                                <div className="bg-gray-800 rounded10 shadow-lg">
+                                    <div className="content-top-agile p-20 pb-0">
+                                        <h2 className="text-primary fw-600">Let's Get Started</h2>
+                                        <p className="mb-0 text-fade">Sign in to continue to edulearn.</p>
+                                    </div>
+                                    <div className="p-40">
+                                        <form action="index.html" method="post">
+                                            <div className="form-group">
+                                                <div className="input-group mb-3">
+                                                    <span className="input-group-text"><i className="text-fade ti-user"></i></span>
+                                                    <input type="text" className="form-control ps-15 " placeholder="Username" />
+                                                </div>
+                                            </div>
+                                            <div className="form-group">
+                                                <div className="input-group mb-3">
+                                                    <span className="input-group-text"><i className="text-fade ti-lock"></i></span>
+                                                    <input type="password" className="form-control ps-15" placeholder="Password" />
+                                                </div>
+                                            </div>
+                                            <div className="row">
+                                                <div className="col-6">
+                                                    <div className="checkbox">
+                                                        <input type="checkbox" id="basic_checkbox_1" />
+                                                        <label htmlFor="basic_checkbox_1">Remember Me</label>
+                                                    </div>
+                                                </div>
+                                                <div className="col-6">
+                                                    <div className="fog-pwd text-end">
+                                                        <a className="text-primary fw-500 hover-primary"><i className="ion ion-locked"></i> Forgot pwd?</a><br />
+                                                    </div>
+                                                </div>
+                                                <div className="col-12 text-center">
+                                                    <Link to='/classroom'>
+                                                        <button type="submit" className="btn btn-primary w-p100 mt-10">SIGN IN</button>
+                                                    </Link>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div className="text-center">
+                                            <p className="mt-15 mb-0 text-fade">Don't have an account? <Link to="/register" className="text-primary ms-5">Sign Up</Link></p>
+                                        </div>
+
+                                        <div className="text-center">
+                                            <p className="mt-20 text-fade">- Sign With -</p>
+                                            <p className="gap-items-2 mb-0">
+                                                <a className="waves-effect waves-circle btn btn-social-icon btn-circle btn-facebook-light" href="#"><i className="fa fa-facebook"></i></a>
+                                                <a className="waves-effect waves-circle btn btn-social-icon btn-circle btn-twitter-light" href="#"><i className="fa fa-twitter"></i></a>
+                                                <a className="waves-effect waves-circle btn btn-social-icon btn-circle btn-instagram-light" href="#"><i className="fa fa-instagram"></i></a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
 }
+
+export default Login

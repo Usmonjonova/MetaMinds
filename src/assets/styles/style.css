@@ -103,6 +103,7 @@ html {
 
 body {
   height: 100%;
+  overflow: auto;
 }
 
 body.layout-boxed {
@@ -27163,8 +27164,9 @@ Height property
   -o-transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  overflow: hidden;
+  overflow: scroll !important;
   border-radius: 1.25rem;
+  scroll-behavior: smooth;
 }
 
 @media (max-width: 767px) {
@@ -40458,6 +40460,7 @@ ul.flexbox {
 
 [data-overlay] {
   position: relative;
+  height: 100vh;
 }
 
 [data-overlay]::before {
