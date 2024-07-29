@@ -5,7 +5,7 @@ const Classroom = () => {
     return (
         <div>
             <div className="cj1zvj4">
-                <h2 className='classroom-title'>7-sinf</h2>
+                <h2 className='classroom-title'>10-sinf</h2>
                 <div className="carouselContent cdwgc8k">
                     <CourseCard></CourseCard>
                 </div>
